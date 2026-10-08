@@ -288,14 +288,17 @@ before changing how anything is drawn.
 
 ## On-device notes
 
-The engine is written so that one style could run on the CHGame itself
-(a CH32X035, 48 MHz RISC-V). It uses integer seeds, no clock and only
-fixed-size 128x128 buffers. `node tools/qa/size.mjs` estimates one trimmed
-style at about 240 KB of dense JavaScript, roughly 100 KB as code, more
-than the chip's 62 KB of flash. So a device version would be a smaller C
-port of a single recipe, with precomputed colour tables and banded or 4-bit
-buffers to fit about 20 KB of RAM (a full one-byte index buffer is 16 KB). This
-is an estimate, not a measured port.
+The engine is written so that a style could one day run on the CHGame
+itself (a CH32X035: 48 MHz RISC-V, no FPU, about 50 KB of usable flash and
+18 KB of RAM). Seeds, hashing and variation are integer-exact; effects come
+from binary masks; scenes and recipes are separately trimmable.
+
+A fixed-point C port of the shared core plus one recipe is estimated at
+about 22–32 KB of flash and 16.5 KB of RAM in a dedicated app (4-bit
+framebuffer plus 1-bit masks), drawing a cover in roughly 40–200 ms.
+Several styles (about 4–6) could share one app; a small recipe interpreter
+reading recipes from the SD card would allow all of them. These are
+estimates from the JavaScript, not a measured port.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
