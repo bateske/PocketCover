@@ -333,7 +333,7 @@ bateske.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-[release-shield]: https://img.shields.io/github/v/release/bateske/PocketCover?style=for-the-badge&color=d0ad62
+[release-shield]: https://img.shields.io/github/v/release/bateske/PocketCover?style=for-the-badge&color=d0ad62&cacheSeconds=3600
 [release-url]: https://github.com/bateske/PocketCover/releases/latest
 [stars-shield]: https://img.shields.io/github/stars/bateske/PocketCover?style=for-the-badge&color=5c7fa0
 [stars-url]: https://github.com/bateske/PocketCover/stargazers
