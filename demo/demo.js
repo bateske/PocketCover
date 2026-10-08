@@ -1,4 +1,5 @@
 import {drawCover,styles} from '../src/index.js';
+import {attachZoom} from './zoom.js';
 const $=s=>document.querySelector(s),gallery=$('#gallery'),titleInput=$('#title'),styleInput=$('#style');
 const params=new URLSearchParams(location.search);
 for(const style of styles){const option=document.createElement('option');option.value=style.id;option.textContent=style.label;styleInput.append(option);}
@@ -27,13 +28,13 @@ function render(){
       const cover=drawCover(canvas,titleInput.value,{style:styleInput.value,variant});
       button.type='button';button.className='sample';button.dataset.variant=variant;button.setAttribute('aria-label',`Select variant ${variant}, ${pretty(cover.traits.archetype||cover.traits.creature||cover.style)}`);
       canvas.setAttribute('aria-hidden','true');caption.className='caption';number.className='number';number.textContent='VARIANT '+String(variant).padStart(2,'0');trait.className='trait';trait.textContent=pretty(cover.traits.archetype||cover.traits.creature||cover.style);
-      caption.append(number,trait);button.append(canvas,caption);button.onclick=()=>{try{select(variant);$('#message').textContent='Selected variant '+variant+'.';}catch(e){$('#message').textContent=e.message;}};cards.push(button);
+      caption.append(number,trait);attachZoom(canvas,canvas,`Variant ${variant} · ${pretty(cover.traits.archetype||cover.traits.creature||cover.style)} · 200%`);button.append(canvas,caption);button.onclick=()=>{try{select(variant);$('#message').textContent='Selected variant '+variant+'.';}catch(e){$('#message').textContent=e.message;}};cards.push(button);
     }
     appliedTitle=titleInput.value;appliedStyle=styleInput.value;
     gallery.replaceChildren(...cards);select(selectedVariant>=offset&&selectedVariant<offset+12?selectedVariant:offset);
     $('#download').disabled=false;
     $('#gallery-title').textContent=styles.find(s=>s.id===styleInput.value).label;
-    $('#range').textContent=`Variants ${offset}–${offset+cards.length-1} · all previews at 2×`;
+    $('#range').textContent=`Variants ${offset}–${offset+cards.length-1} · thumbnails at 1×, hover for 200%`;
     $('#previous').disabled=offset===0;$('#next').disabled=!Number.isSafeInteger(offset+12);
     $('#message').textContent='Same title, style and variant always reproduce the same cover.';
   }catch(error){$('#message').textContent=error.message;}

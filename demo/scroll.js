@@ -1,5 +1,6 @@
 import {drawCover,styles} from '../src/index.js';
-const $=s=>document.querySelector(s),grid=$('#grid'),titleInput=$('#title'),zoom=$('#zoom'),zoomCanvas=zoom.querySelector('canvas'),zoomLabel=zoom.querySelector('div');
+import {attachZoom} from './zoom.js';
+const $=s=>document.querySelector(s),grid=$('#grid'),titleInput=$('#title');
 const params=new URLSearchParams(location.search);
 if(params.get('title'))titleInput.value=params.get('title');
 let rows=0,busy=false;
@@ -26,9 +27,7 @@ function more(n=4){
     }catch(e){tag.textContent=ref+' (error)';sub.textContent=e.message;}
     canvas.title=`${ref} — "${title}"`;
     canvas.onclick=()=>{const text=`${ref} "${title}"`;navigator.clipboard?.writeText(text);toast('Copied: '+text);};
-    canvas.onmouseenter=()=>{const z=zoomCanvas.getContext('2d');z.imageSmoothingEnabled=false;z.drawImage(canvas,0,0);zoomLabel.textContent=ref;zoom.style.display='block';};
-    canvas.onmouseleave=()=>zoom.style.display='none';
-    canvas.onmousemove=e=>{const w=264,h=290,x=e.clientX+18+w>innerWidth?e.clientX-18-w:e.clientX+18,y=Math.min(innerHeight-h-4,Math.max(4,e.clientY-h/2));zoom.style.left=x+'px';zoom.style.top=y+'px';};
+    attachZoom(canvas,canvas,ref+' · 200%');
     cell.append(canvas,tag,sub);grid.append(cell);
   }
   busy=false;

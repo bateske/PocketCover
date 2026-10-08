@@ -47,11 +47,12 @@ const map={imports:Object.fromEntries([...modules].map(([key,{source}])=>[key,DA
 const importMap=JSON.stringify(map).replace(/</g,'\\u003c');
 const html=readFileSync(resolve(root,'demo/index.html'),'utf8')
   .replace('<link rel="stylesheet" href="./demo.css">',()=>'<style>'+readFileSync(resolve(root,'demo/demo.css'),'utf8')+'</style>')
-  .replace('<script type="module" src="./demo.js"></script>',()=>'<script type="importmap">'+importMap+'</script><script type="module">import "'+PREFIX+'demo.js";</script>')
+  .replace('<script type="module" src="./demo.js"></script>',()=>'<script type="importmap">'+importMap+'</script><script type="module">import "'+PREFIX+'demo/demo.js";</script>')
   .replace('href="../examples/index.html">Browse review sheets ↗','href="#gallery">Browse generated variants ↓')
   .replace('or copy the page URL.', 'shown below each cover.')
   .replace('Procedural cover studio / 128 × 128','Offline cover studio / 128 × 128');
 if(!html.includes('<script type="importmap">'))throw Error('demo/index.html no longer has the expected demo.js module script.');
+if(!modules.has(PREFIX+'demo/demo.js'))throw Error('standalone entry specifier is missing from the import map.');
 writeFileSync(out,html);
 const sourceBytes=[...modules.values()].reduce((n,m)=>n+Buffer.byteLength(m.source),0);
 console.log(`Built ${relative(root,out)||out} (${Math.round(Buffer.byteLength(html)/1024)} KiB; ${modules.size} modules, ${Math.round(sourceBytes/1024)} KiB of source, each embedded once). Double-click to open; no server required.`);
