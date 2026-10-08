@@ -2,12 +2,27 @@
   "name": "pocket-cover",
   "version": "19.0.0",
   "description": "Deterministic, dependency-free 128x128 procedural pixel-art cover and avatar generator, made for CHGame handheld cover art",
-  "keywords": ["pixel-art", "procedural", "avatar", "cover-art", "generator", "chgame", "deterministic", "canvas", "128x128"],
+  "keywords": [
+    "pixel-art",
+    "procedural",
+    "avatar",
+    "cover-art",
+    "generator",
+    "chgame",
+    "deterministic",
+    "canvas",
+    "128x128"
+  ],
   "license": "MIT",
   "author": "bateske",
   "homepage": "https://github.com/bateske/PocketCover#readme",
-  "repository": {"type": "git", "url": "git+https://github.com/bateske/PocketCover.git"},
-  "bugs": {"url": "https://github.com/bateske/PocketCover/issues"},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bateske/PocketCover.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bateske/PocketCover/issues"
+  },
   "type": "module",
   "main": "./src/index.js",
   "module": "./src/index.js",
@@ -23,8 +38,15 @@
     "./package.json": "./package.json"
   },
   "sideEffects": false,
-  "engines": {"node": ">=18"},
-  "files": ["src/", "README.md", "LICENSE", "NOTICE.txt"],
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "src/",
+    "README.md",
+    "LICENSE",
+    "NOTICE.txt"
+  ],
   "scripts": {
     "test": "node --test",
     "examples": "node scripts/examples.mjs",
@@ -33,6 +55,7 @@
     "start": "node scripts/serve.mjs",
     "digest": "node scripts/digest.mjs",
     "compare": "node scripts/compare.mjs",
-    "banner": "node scripts/banner.mjs"
+    "banner": "node scripts/banner.mjs",
+    "social": "node scripts/social.mjs"
   }
 }
