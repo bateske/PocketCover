@@ -18,12 +18,12 @@
 [![Platform][platform-shield]][chgame-url] [![Dependencies][deps-shield]](#getting-started) [![Size][size-shield]](#on-device-notes) [![128x128][res-shield]](#the-chgame-cover-contract) [![Deterministic][det-shield]](#api-reference)
 
 <p>
-  <a href="demo/standalone.html"><strong>Try the demo »</strong></a>
+  <a href="https://bateske.github.io/PocketCover/demo/"><strong>Try the demo »</strong></a>
   <br>
   <br>
-  <a href="demo/index.html">Studio</a>
+  <a href="https://bateske.github.io/PocketCover/demo/">Studio</a>
   ·
-  <a href="demo/scroll.html">Scroller</a>
+  <a href="https://bateske.github.io/PocketCover/demo/scroll.html">Scroller</a>
   ·
   <a href="docs/FEATURES.md">Docs</a>
   ·
@@ -261,7 +261,7 @@ Then open <http://127.0.0.1:4173> for the studio (`demo/index.html`): pick a
 style and title, browse variants and download native PNGs. The infinite
 scroller is at `/demo/scroll.html`.
 
-No server needed: [demo/standalone.html](demo/standalone.html) is the whole
+Online: [studio](https://bateske.github.io/PocketCover/demo/) and [scroller](https://bateske.github.io/PocketCover/demo/scroll.html). No server needed: [demo/standalone.html](https://bateske.github.io/PocketCover/demo/standalone.html) is the whole
 studio in one offline file. Double-click it. Rebuild it after source changes
 with `npm run standalone`.
 
