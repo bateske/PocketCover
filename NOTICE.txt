@@ -1,0 +1,50 @@
+Pocket Cover - third-party notices
+==================================
+
+The Pocket Cover source code is released under the MIT License (see LICENSE).
+The bitmap font data in src/font.js is NOT covered by that license; each font
+keeps its author's terms, summarised below.
+
+  fonts[0]  TomAndJerry14x10 (StePickford) - UNCLEAR redistribution terms (!)
+  fonts[1]  MonoBold8x8     (castpixel)    - UNCLEAR redistribution terms (!)
+  fonts[2]  MinimalFont5x7  (Kate Garcia)  - author states "Feel free to use"
+  fonts[3]  Round9x13       (heraldod)     - SIL Open Font License 1.1
+
+WARNING: fonts[0] and fonts[1] were taken from local exports that carry no
+explicit redistribution terms. If you redistribute Pocket Cover, check those
+fonts' original terms first, or drop those glyph tables from src/font.js.
+
+Details
+-------
+
+Pocket Cover's procedural renderer is an original implementation.
+The reference projects named in README.md inspired design concepts only;
+their code and image assets are not bundled.
+
+src/font.js (fonts[2]) contains a printable-ASCII bitmap subset of MinimalFont5x7.ttf by
+Kate Garcia (font copyright metadata: KateisAwesome120), extracted from the
+user-provided PixelFonts project,
+build/manifest-exports/MinimalFont5x7.json.
+The author's listing labels the font "100% Free" and states:
+"Feel free to use this font."
+Source: https://www.dafont.com/minimalfont5x7.font (checked 2026-10-05).
+Original font rights remain with the author. Preserve this notice when copying
+the library.
+
+Version 2 also includes printable-ASCII bitmap subsets from the user-provided
+TomAndJerry14x10.json (font copyright metadata: StePickford) and
+MonoBold8x8.json (font copyright metadata: castpixel). These two local exports
+do not include explicit redistribution terms; their original rights remain with
+their authors. No additional rights to these fonts are granted by this package.
+Review their source-font terms before redistributing those font subsets.
+
+Version 19 adds fonts[3] in src/font.js: a printable-ASCII bitmap subset of
+Round9x13 by heraldod (font copyright metadata: Herald), from
+https://heraldod.itch.io/bitmap-fonts, licensed under the SIL Open Font
+License, Version 1.1 (https://openfontlicense.org). The glyphs were rasterized
+from Round9x13.ttf on the font's native 13 px pixel grid and are never scaled.
+This subset is a Modified Version under the OFL: the '&' glyph (code 38) was
+redrawn for Pocket Cover, because the original read as 'G' at 1x. It keeps the
+font's 13 rows, advance of 10 and rounded corners. Every other glyph is the
+unmodified raster. The font data remains under the OFL 1.1 and may not be sold
+by itself. The OFL does not cover the rest of this package.

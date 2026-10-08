@@ -1,0 +1,67 @@
+:root{color-scheme:dark;font:15px system-ui,sans-serif;background:#12191e;color:#edf0e9;--cover-size:256px}
+*{box-sizing:border-box}
+body{margin:0}
+button,input,select{font:inherit}
+button,a,input,select{-webkit-tap-highlight-color:transparent}
+button,input,select{border:1px solid #415057;border-radius:6px;background:#202c32;color:inherit;padding:11px 13px}
+button{cursor:pointer}
+button:hover{border-color:#bfee95}
+button:disabled{opacity:.4;cursor:default}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #bfee95;outline-offset:4px}
+a{color:#bfee95;text-underline-offset:4px}
+.shell{max-width:1360px;padding:30px 36px 64px;margin:auto}
+.brand{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-bottom:20px;border-bottom:1px solid #344149}
+.brand strong{font-size:14px;letter-spacing:.16em}
+.badge,.eyebrow{color:#bfee95;font-size:11px;letter-spacing:.13em;text-transform:uppercase}
+.brand a{font-size:13px}
+header{padding:36px 0 24px}
+h1{font-size:clamp(32px,4vw,50px);line-height:1.06;letter-spacing:-.045em;margin:10px 0 14px;font-weight:650}
+header p{color:#abb8be;line-height:1.6;max-width:620px;margin:0}
+.controls{display:grid;grid-template-columns:1.2fr 1fr auto;gap:16px;align-items:end;margin:25px 0}
+label{display:grid;gap:8px;color:#bdc8cc;font-size:12px;min-width:0}
+input,select{font-size:15px;width:100%;min-width:0}
+.primary{background:#bfee95;color:#182219;border-color:#bfee95;font-weight:650}
+.workspace{display:grid;grid-template-columns:298px minmax(0,1fr);gap:28px;margin-top:25px;align-items:start}
+.workspace>*,.selected>div{min-width:0}
+.selected{position:sticky;top:20px;background:#1a252c;border:1px solid #34434b;border-radius:10px;padding:20px}
+/* All covers use the same exact integer enlargement. Narrow layouts change
+   columns and framing; the native 128px canvas always occupies 256 CSS pixels. */
+canvas{display:block;width:var(--cover-size);height:var(--cover-size);min-width:var(--cover-size);min-height:var(--cover-size);max-width:none;max-height:none;flex:0 0 var(--cover-size);image-rendering:pixelated}
+.selected canvas,.sample canvas{margin-inline:auto}
+.selected h2{font-size:18px;margin:18px 0 6px}
+.selected p{font-size:12px;color:#afbdc4;line-height:1.5}
+.selected .scale-note{color:#bfee95;font-size:11px;margin:10px 0 0;letter-spacing:.03em}
+.palette{display:flex;gap:3px;margin:16px 0}
+.swatch{width:100%;height:15px;border-radius:2px}
+.download{width:100%}
+.gallery-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin:0 0 16px}
+.gallery-head h2{font-size:17px;margin:0 0 4px}
+.gallery-head p{font-size:12px;color:#93a6af;margin:0}
+.pager{display:flex;gap:6px}
+.pager button{padding:8px 11px}
+#gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(282px,1fr));gap:18px;align-items:start}
+.sample{min-width:282px;padding:12px 12px 0;border:1px solid #34434b;border-radius:8px;background:#1a252c;text-align:left}
+.sample[aria-pressed=true]{border-color:#bfee95;box-shadow:0 0 0 1px #bfee95}
+.sample .caption{padding:12px 0 13px;display:block;min-width:0}
+.sample .number{font-size:11px;color:#bfee95;display:block;margin-bottom:4px;letter-spacing:.05em}
+.sample .trait{font-size:12px;color:#b4c0c6;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#message{min-height:20px;color:#bfee95;font-size:12px}
+.footer{font-size:12px;color:#869ba5;line-height:1.65;margin-top:30px;padding-top:20px;border-top:1px solid #344149}
+@media(max-width:999px){
+  .shell{padding:24px 24px 48px}
+  .workspace{grid-template-columns:minmax(0,1fr);gap:24px}
+  .selected{position:static;display:grid;grid-template-columns:256px minmax(0,1fr);gap:24px;align-items:center}
+  .selected h2{margin-top:0}
+}
+@media(max-width:680px){
+  .shell{padding:20px 14px 40px}
+  .brand{gap:12px;flex-wrap:wrap}
+  .brand strong,.brand a{font-size:12px}
+  .controls{grid-template-columns:minmax(0,1fr);gap:14px}
+  .selected{grid-template-columns:minmax(256px,1fr);gap:0;padding:14px 0;min-width:258px}
+  .selected>div{padding:0 14px}
+  .selected h2{margin-top:18px}
+  #gallery{grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:16px}
+  .sample{min-width:258px;padding:0}
+  .sample .caption{padding:11px 12px 12px}
+}
